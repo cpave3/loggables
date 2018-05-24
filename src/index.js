@@ -1,12 +1,14 @@
-const chalk = require('chalk');
 const connection = new(require('nosqlite').Connection)();
 const path = require('path');
 const Tail = require('tail-forever');
+const log = require('./consoleLog').log;
 
 // -----
 
+const tailTarget = __dirname+'/../sample-files/sample.log1';
+
 function exitApp() {
-    console.log(chalk.red(`[*] Exiting...`));
+    log(`Exiting...`, 'danger');
     process.exit();
 }
 
@@ -14,31 +16,31 @@ const db = connection.database('logs');
 
 db.exists((exists) => {
     if (exists) {
-        console.log(chalk.green(`[*] Database found. Connecting...`));
+        log(`Database found. Connecting...`, 'good');
         appLoop();
     } else {
-        console.log(chalk.yellow(`[^] Database not found. Creating...`));
+        log(`Database not found. Creating...`, 'good');
         db.createSync((err) => {
             if (err) {
-                console.log(chalk.bgRed(`[!] Error: ${err}`));
+                log(`Error: ${err}`, 'error');
                 exitApp();
             }
         });
-        console.log(chalk.green(`[*] Database created. Connecting...`));
+        log(`Database created. Connecting...`, 'good');
     }
 });
 
 function appLoop() {
-    tail = new Tail("./sample.log1");
+    tail = new Tail(tailTarget);
     tail.on("line", function(line) {
       const logLine  = {data: line};
       db.post(logLine, (err, id) => {
         if (err) throw err;
-        console.log(chalk.blue(`[#] Record ${id} inserted`));
+        log(`Record ${id} inserted`);
       });
     });
     tail.on("error", function(error) {
-      console.log(chalk.red(error));
+      log(error, 'error');
     });
 }
 

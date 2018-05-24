@@ -4,5 +4,12 @@
     "nosqlite": "^0.2.2",
     "path": "^0.12.7",
     "tail-forever": "^0.3.15"
-  }
+  },
+  "name": "loggables",
+  "version": "0.0.1",
+  "description": "A cool and hip new way to stay up to date with your favorite log files.",
+  "main": "src/index.js",
+  "repository": "https://github.com/cpave3/loggables.git",
+  "author": "Cameron Pavey <cpave3@gmail.com>",
+  "license": "MIT"
 }
