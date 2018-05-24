@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "nosqlite": "^0.2.2",
+    "path": "^0.12.7",
+    "tail-forever": "^0.3.15"
+  }
+}
