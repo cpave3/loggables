@@ -4,3 +4,20 @@
 [console logging] yes wow
 [console logging] yes wow
 [console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works
+[console logging] yes wow hopefully this works now
+Turns out the issue was that it was already an array

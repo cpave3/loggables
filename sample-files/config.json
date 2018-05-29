@@ -1,0 +1,28 @@
+{
+  "name": "AMS Laravel.log",
+  "target": "/home/cameron/development/ams-docker-environment/platform/app/storage/logs/laravel.log",
+  "rules": {
+    "regex": "^\[(.+?)\] vm\.(.\w+): .+? (\[.*\]) \[\]",
+    "matches": [
+      {
+        "name": "timestamp",
+        "displayName": "Time",
+        "type": "timestamp"
+      },
+      {
+        "name": "severity",
+        "type": "string"
+      },
+      {
+        "name": "message",
+        "type": "string"
+      },
+      {
+        "name": "data",
+        "type": "array"
+      }
+    ],
+    "processHistoricData": true,
+    "tail": true
+  }
+}
